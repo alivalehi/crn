@@ -2,17 +2,17 @@
 ![Image](whole.png)
  	
 The code starts ith following code. These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
-~~~~
+```
 framing_flag = 0;
 TK_flag =0;
 Ber_flag =0;
 Rch_flag =0;
 lambda_flag=0;
 input_flag = 0;
-~~~~
+```
 Following block contains all of the default setting for the imulation
 
-~~~~
+```
 sim = init_sim(2);
 sim.input_process = 1;
 sim.lambda =100;
@@ -24,7 +24,7 @@ user_input = 0;
 sim.control.debug_active = 0;
 sim.u =2;
 sim.v =2;
-~~~~
+```
 Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process.... 
 ```matlab
 display('starting CRN channel queue simulation...');
@@ -114,7 +114,7 @@ if (user_input == 1)
 end
 ```
 The actual simulation start from this section
-~~~~
+```matlab
 sim = calc_sim_params(sim);
 %Setting up H,N,lambda,a=1/lambda,Kv
 H = sim.H;  N = sim.N; lambda = sim.lambda;  a=1/lambda; Kv=sim.Kv;
@@ -143,4 +143,4 @@ catch
  display('!!!!!!!!!!!!It seems you did not follow the requested format for the input please try agian!!!!!!!!!!!!')
 end
 
-~~~~
+```
