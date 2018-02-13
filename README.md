@@ -26,8 +26,7 @@ sim.u =2;
 sim.v =2;
 ~~~~
 Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process.... 
-~~~~
-%#######################################################################################################################
+```matlab
 display('starting CRN channel queue simulation...');
 display('Please answer following question in order to initialize simulation parameters')
 %try
@@ -113,7 +112,7 @@ if (user_input == 1)
         end
     end
 end
-~~~~
+```
 The actual simulation start from this section
 ~~~~
 sim = calc_sim_params(sim);
