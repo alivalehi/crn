@@ -95,6 +95,9 @@ In this section of the example framing mode is selected b a user. There two diff
 ![Image](framing_NB.png)
 
 # Time Based 
+A sequence of $N$-bit symbols $\{S_i\}_{i=0}^{\infty}$ arrives at the input of transmission system according to a Poisson process with rate $\lambda$. 
+The symbols are combined into packets with a constant header size $H$, then scheduled in an infinite length queue with FCFS discipline and transmitted through a wireless channel with bit rate $R$ to the destination, as depicted in Fig.~\ref{fig:sysmodel}. 
+In order to bundle the symbols into the transmit packets, we adopt a \textit{time-based packetization policy}, where the time axis is partitioned into consecutive equal packetization intervals of size $T$. The $\mathbf{k}_n$ symbols that arrive at the $n^{th}$ interval $\big[(n-1)T, nT\big)=\{t|(n-1)T \leq t < nT\}$ are combined to form a single transmission packet $X_n$ and is scheduled for transmission. We propose two different implementation modes. The distinction between these modes is the way we handle the intervals with zero arrival symbols. In \textit{mode 1 (efficient mode)}, no packet is sent for zero symbol accumulation and hence formation of the transmit packet is postponed to the subsequent intervals. Therefore, the inter-arrival for packet $n$, denoted by $\bm{\tau}_n$ can be multiples of packetization interval, $T$.
 ![Image](framing_TB.png)
 ```matlab 
     while Rch_flag ==0
