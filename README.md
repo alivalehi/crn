@@ -8,7 +8,7 @@ CRN-queueing package is a tool for simulating the behaviour of packets in cognit
  1- paket transmission simulator
  In order to understand how each of these cores participate in the simulation a sample (sample.m) is provided which utilize all of these cores to simulate a CRN with single pair of users.
  Following is the description of sample exmaple
- #Sample model
+ # Sample model
 The code starts with following code. These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
 ```
 framing_flag = 0;
