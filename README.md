@@ -1,7 +1,15 @@
 # CRN-Queueing
+CRN-queueing package is a tool for simulating the behaviour of packets in cognitive radio network or cognitive radio sensor networks. The aim of this package is calculating different features of such a system in addition to many other objectives which can be add to its framework. 
 ![Image](whole.png)
- 	
-The code starts ith following code. These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
+ The package includes four main cores.
+ 1- symbol generator
+ 1- packetizer
+ 1-channel generator
+ 1- paket transmission simulator
+ In order to understand how each of these cores participate in the simulation a sample (sample.m) is provided which utilize all of these cores to simulate a CRN with single pair of users.
+ Following is the description of sample exmaple
+ #Sample model
+The code starts with following code. These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
 ```
 framing_flag = 0;
 TK_flag =0;
@@ -10,22 +18,9 @@ Rch_flag =0;
 lambda_flag=0;
 input_flag = 0;
 ```
-Following block contains all of the default setting for the imulation
 
-```
-sim = init_sim(2);
-sim.input_process = 1;
-sim.lambda =100;
-sim.Framing_mode = 2;
-K=10;
-sim.ch.Rch =500;
-sim.ch.BER=1e-4;
-user_input = 0;
-sim.control.debug_active = 0;
-sim.u =2;
-sim.v =2;
-```
-Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process.... 
+Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process....
+
 ```matlab
 display('starting CRN channel queue simulation...');
 display('Please answer following question in order to initialize simulation parameters')
@@ -56,6 +51,9 @@ if (user_input == 1)
             lambda_flag =1;
         end
     end
+```
+
+```matlab    
     while framing_flag ==0
         display('What kind of Framing mode you want to choose for this simulation? Please insert 1 for Time based or 2 for Number based');
         x = input('','s');
@@ -91,6 +89,13 @@ if (user_input == 1)
             end
         end
     end
+```
+In this section of the example framing mode is selected b a user. There two different type of framing defined in the current version of the ""Number based and Time based.
+#Number Based
+![Image](framing_NB.png)
+#Time Based 
+![Image](framing_TB.png)
+```matlab 
     while Rch_flag ==0
         
         
@@ -112,6 +117,21 @@ if (user_input == 1)
         end
     end
 end
+```
+Following block contains all of the default setting for the imulation
+
+```
+sim = init_sim(2);
+sim.input_process = 1;
+sim.lambda =100;
+sim.Framing_mode = 2;
+K=10;
+sim.ch.Rch =500;
+sim.ch.BER=1e-4;
+user_input = 0;
+sim.control.debug_active = 0;
+sim.u =2;
+sim.v =2;
 ```
 The actual simulation start from this section
 ```matlab
