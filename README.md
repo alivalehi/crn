@@ -91,9 +91,10 @@ if (user_input == 1)
     end
 ```
 In this section of the example framing mode is selected b a user. There two different type of framing defined in the current version of the ""Number based and Time based.
-#Number Based
+# Number Based
 ![Image](framing_NB.png)
-#Time Based 
+
+# Time Based 
 ![Image](framing_TB.png)
 ```matlab 
     while Rch_flag ==0
