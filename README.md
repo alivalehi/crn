@@ -1,5 +1,5 @@
 # Cognitive Radio Network Queueing simulator
-CRN is a free, open-source, simulator designed to calculate different queueing parameters such as waiting time service time for a cognitive radio network frame work.([webpage](www.alivalehi.com/crn))
+CRN is a free, open-source, simulator designed to calculate different queueing parameters such as waiting time service time for a cognitive radio network frame work.([webpage](http://alivalehi.com/crn))
 
 CRN is ideal for modeling packeting symbols which are generated from different sensors. It has a user friendly interface with the users for adjusting the channel paramters. The basic usage of the CRN is caluclating mean waiting time and service time with different methods of input generation and packetization 
 
