@@ -14,5 +14,7 @@ CRN is ideal for modeling packeting symbols which are generated from different s
  Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com.
 
 Please cite CRN as:
->A. Valehi and A. Razi, "Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of >Information," in IEEE Transactions on Cognitive Communications and Networking, vol. 3, no. 4, pp. 643-654, Dec. 2017.
->doi: 10.1109/TCCN.2017.2749232
+```
+A. Valehi and A. Razi, "Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of Information," in IEEE Transactions on Cognitive Communications and Networking, vol. 3, no. 4, pp. 643-654, Dec. 2017.
+doi: 10.1109/TCCN.2017.2749232
+```
