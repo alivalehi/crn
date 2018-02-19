@@ -1,15 +1,17 @@
 # CRN-Queueing
 CRN-queueing package is a tool for simulating the behaviour of packets in cognitive radio network or cognitive radio sensor networks. The aim of this package is calculating different features of such a system in addition to many other objectives which can be add to its framework. 
 ![Image](./images/whole.png)
- The package includes four main cores.
+ The package includes following main cores.
+ 1- simulator initializer
+ 1- simulation parameter calculator
  1- symbol generator
  1- packetizer
- 1-channel generator
+ 1- channel generator
  1- paket transmission simulator
- In order to understand how each of these cores participate in the simulation a sample (sample.m) is provided which utilize all of these cores to simulate a CRN with single pair of users.
- Following is the description of sample exmaple
+ In order to understand how each of these cores participate in the simulation a sample (sample.m) is provided which utilize all of these  cores to simulate a CRN with single pair of users.
+ Following is the description of sample exmaple:
  # Sample model
-The code starts with following code. These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
+The code starts with following code. 
 ```
 framing_flag = 0;
 TK_flag =0;
@@ -18,8 +20,9 @@ Rch_flag =0;
 lambda_flag=0;
 input_flag = 0;
 ```
+These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
 
-Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process....
+After making sure that the interface has this ability to completely asks for the required information we start asking users different questions to make sure that configure the system accordingly.Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process....
 
 ```matlab
 display('starting CRN channel queue simulation...');
@@ -27,7 +30,8 @@ display('Please answer following question in order to initialize simulation para
 %try
 if (user_input == 1)
     while input_flag ==0
-        display('What typr of input process you want to choose for this simulation? Please insert 1 for Poisson or 2 for Deterministic');
+        display('What typr of input process you want to choose for this simulation? 
+        Please insert 1 for Poisson or 2 for Deterministic');
         x = input('','s');
         if (x=='1' || x=='2')
             input_flag=1;
@@ -41,6 +45,16 @@ if (user_input == 1)
             sim.input_process = 2;
         end
     end
+ ```
+    
+### Input process
+The first question is about input process there are two different types of input process has beeen defined in CRN. Posission and Deterministic
+#### Poission
+As you can see in the following figure the samples are generated according to poission process in the other words the time between generation of each symbol (shown by arrow) To know more about the realtion of Possion and exponential you can check [this link](https://stats.stackexchange.com/questions/2092/relationship-between-poisson-and-exponential-distribution). 
+#### Deterministic
+Another type of symbol generation is deterministic intervals. Although, this assumption is not that much real and it  is not a good approximation  for such a system. It is included in the package!
+In the following figure this concept is illistrated. The deteministic symbol generation can be also be described in this context:we assume that symbols are generated in a constant rate therefore the interval between all symbols has an equal length. 
+```matlab
     while lambda_flag ==0
         
         
@@ -52,10 +66,14 @@ if (user_input == 1)
         end
     end
 ```
+After we accept the type of input process the next step would be the parametr for the choosen distribution of inputs inteval. Therefore the lambda as variable will initialize as parametr of the exponential distribution or deterministic distribution.
 
+### Framing mode
+In this section of the example framing mode is selected b a user. There two different type of framing defined in the current version of the ""Number based and Time based.
 ```matlab    
     while framing_flag ==0
-        display('What kind of Framing mode you want to choose for this simulation? Please insert 1 for Time based or 2 for Number based');
+        display('What kind of Framing mode you want to choose for this simulation?
+        Please insert 1 for Time based or 2 for Number based');
         x = input('','s');
         if (x=='1' || x=='2')
             framing_flag=1;
@@ -90,14 +108,14 @@ if (user_input == 1)
         end
     end
 ```
-In this section of the example framing mode is selected b a user. There two different type of framing defined in the current version of the ""Number based and Time based.
-# Number Based
+
+#### Number Based
 A sequence of N-bit measurement samples is generated by each sensing module according to a Poisson process with rate lambda. Therefore, the sample interarrival times, denoted by xi_j are independent and exponentially distributed random variable with mean 1/lambda. 
 Each measurement sample is quantized and digitized to an N-bit value. Under the developed Number-based framing policy, each sensor waits for genesis of k samples {X_{k(i-1)+1},X_{k(i-1)+2},...,X_{ki}} and then encapsulates them into a single packet P_i . For a constant header size of H, the length of packets is a function of k: l(k)=kN+H. 
 
 ![Image](./images/framing_NB.png)
 
-# Time Based 
+#### Time Based 
 A sequence of N-bit symbols arrives at the input of transmission system according to a Poisson process with rate lambda. 
 The symbols are combined into packets with a constant header size H, then scheduled in an infinite length queue with FCFS discipline and transmitted through a wireless channel with bit rate  R to the destination. 
 In order to bundle the symbols into the transmit packets, we adopt a time-based packetization policy, where the time axis is partitioned into consecutive equal packetization intervals of size T. The {k}_n symbols that arrive at the n^{th} interval [(n-1)T, nT)={t|(n-1)T <= t < nT are combined to form a single transmission packet X_n and is scheduled for transmission.
