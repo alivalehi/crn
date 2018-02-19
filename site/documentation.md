@@ -13,38 +13,35 @@ CRN-queueing package is a tool for simulating the behaviour of packets in cognit
  # Sample model
 The code starts with following code. 
 ```
-framing_flag = 0;
-TK_flag =0;
-Ber_flag =0;
-Rch_flag =0;
-lambda_flag=0;
-input_flag = 0;
+user_input   = 0;   % Wether ask user for initialization (1) or run with default setting (0)
+framing_flag = 0;   % Framing type flag
+TK_flag      = 0;   % Framing type flag
+Ber_flag     = 0;   % Bit error rate flag
+Rch_flag     = 0;   % Channel processing rate flag
+lambda_flag  = 0;   % Input rate flag
+input_flag   = 0;   % Input type flag
 ```
 These lines are used to define some flags to make sure that the parameters that we are going to ask from a user completely gathered.
 
 After making sure that the interface has this ability to completely asks for the required information we start asking users different questions to make sure that configure the system accordingly.Following section is for getting data from users.  Users are being asked to provide values for the simulation for example type of framing type of input process....
 
 ```matlab
-display('starting CRN channel queue simulation...');
-display('Please answer following question in order to initialize simulation parameters')
-%try
-if (user_input == 1)
-    while input_flag ==0
-        display('What typr of input process you want to choose for this simulation? 
-        Please insert 1 for Poisson or 2 for Deterministic');
-        x = input('','s');
-        if (x=='1' || x=='2')
-            input_flag=1;
-        end
-        if (x=='1')
-            display('Poisson is choosen');
-            sim.input_process = 1;
-        end
-        if (x=='2')
-            display('Deterministic is choosen');
-            sim.input_process = 2;
-        end
-    end
+while input_flag ==0
+     display('What typr of input process you want to choose for this simulation? 
+     Please insert 1 for Poisson or 2 for       Deterministic');
+     x = input('','s');
+     if (x=='1' || x=='2')
+          input_flag = 1;
+     end
+     if (x=='1')
+          display('Poisson is choosen');
+          sim.input_process = 1;
+      end
+      if (x=='2')
+          display('Deterministic is choosen');
+          sim.input_process = 2;
+      end
+ end
  ```
     
 ### Input process
@@ -55,58 +52,56 @@ As you can see in the following figure the samples are generated according to po
 Another type of symbol generation is deterministic intervals. Although, this assumption is not that much real and it  is not a good approximation  for such a system. It is included in the package!
 In the following figure this concept is illistrated. The deteministic symbol generation can be also be described in this context:we assume that symbols are generated in a constant rate therefore the interval between all symbols has an equal length. 
 ```matlab
-    while lambda_flag ==0
-        
-        
-        display('What is the lambda for the input generation?');
-        y = input('');
-        if(isnumeric(y))
-            sim.lambda =y;
-            lambda_flag =1;
-        end
-    end
+while lambda_flag == 0
+     display('What is the lambda for the input generation?');
+     y = input('');
+     if(isnumeric(y))
+          sim.lambda  = y;
+          lambda_flag = 1;
+     end
+end
 ```
 After we accept the type of input process the next step would be the parametr for the choosen distribution of inputs inteval. Therefore the lambda as variable will initialize as parametr of the exponential distribution or deterministic distribution.
 
 ### Framing mode
 In this section of the example framing mode is selected b a user. There two different type of framing defined in the current version of the ""Number based and Time based.
 ```matlab    
-    while framing_flag ==0
-        display('What kind of Framing mode you want to choose for this simulation?
-        Please insert 1 for Time based or 2 for Number based');
-        x = input('','s');
-        if (x=='1' || x=='2')
-            framing_flag=1;
-        end
-        if (x=='1')
-            display('Time based method is choosen');
-            sim.Framing_mode = 1;
-        end
-        if (x=='2')
-            display('Number based method is choosen');
-            sim.Framing_mode = 2;
-        end
-    end
+while framing_flag ==0
+     display('What kind of Framing mode you want to choose for this simulation?
+     Please insert 1 for Time based or 2 for Number based');
+     x = input('','s');
+     if (x=='1' || x=='2')
+          framing_flag=1;
+     end
+     if (x=='1')
+          display('Time based method is choosen');
+          sim.Framing_mode = 1;
+     end
+     if (x=='2')
+          display('Number based method is choosen');
+          sim.Framing_mode = 2;
+     end
+     mode = sim.Framing_mode; 
+end
     
-    while TK_flag ==0
-        
-        if (x=='1')
-            display('In how many seconds you want to packetize your symbols?');
-            y = input('');
-            if(isnumeric(y))
-                TK_flag =1;
-                T = y;
-            end
-        end
-        if (x=='2')
-            display('Please specify number of symbols in each packet?');
-            y = input('');
-            if(isnumeric(y))
+while TK_flag ==0
+     if (x=='1')
+          display('In how many seconds you want to packetize your symbols?');
+          y = input('');
+          if(isnumeric(y))
+               TK_flag =1;
+               T = y;
+          end
+      end
+      if (x=='2')
+           display('Please specify number of symbols in each packet?');
+           y = input('');
+           if(isnumeric(y))
                 TK_flag =1;
                 K = y;
-            end
-        end
-    end
+           end
+      end
+end
 ```
 
 * #### Number Based
@@ -121,43 +116,42 @@ The symbols are combined into packets with a constant header size H, then schedu
 In order to bundle the symbols into the transmit packets, we adopt a time-based packetization policy, where the time axis is partitioned into consecutive equal packetization intervals of size T. The {k}_n symbols that arrive at the n^{th} interval [(n-1)T, nT)={t|(n-1)T <= t < nT are combined to form a single transmission packet X_n and is scheduled for transmission.
 ![Image](./images/framing_TB.png)
 ```matlab 
-    while Rch_flag ==0
-        
-        
-        display('What is the rate of channel?');
-        y = input('');
-        if(isnumeric(y))
-            sim.ch.Rch =y;
-            Rch_flag =1;
-        end
-    end
-    while Ber_flag ==0
-        
-        
-        display('What is the channel bit error rate?');
-        y = input('');
-        if(isnumeric(y))
-            sim.ch.BER=y;
-            Ber_flag =1;
-        end
-    end
+while Rch_flag ==0
+     display('What is the rate of channel?');
+     y = input('');
+     if(isnumeric(y))
+          sim.ch.Rch =y;
+          Rch_flag =1;
+     end
+end
+while Ber_flag ==0
+     display('What is the channel bit error rate?');
+     y = input('');
+     if(isnumeric(y))
+          sim.ch.BER=y;
+          Ber_flag =1;
+      end
 end
 ```
 Following block contains all of the default setting for the imulation
 
 ```
-sim = init_sim(2);
-sim.input_process = 1;
-sim.lambda =100;
-sim.Framing_mode = 2;
-K=10;
-sim.ch.Rch =500;
-sim.ch.BER=1e-4;
-user_input = 0;
-sim.control.debug_active = 0;
-sim.u =2;
-sim.v =2;
+else
+    mode              = 1;   %1 for Time based or 2 for Number based
+    sim.input_process = 1;   %1 for Poisson  2 for Deterministic
+    sim.lambda        = 100;
+    sim.Framing_mode  = mode;
+    sim.ch.BER        = 1e-4;
+    K                 = 10;
+    sim.ch.Rch        = 500;
 ```
+Some initialization that in this sample code is not initialized by the user
+```
+sim = init_sim(mode);
+sim.cognitive = 1;
+sim.control.debug_active = 0;
+```
+
 The actual simulation start from this section
 ```matlab
 sim = calc_sim_params(sim);
