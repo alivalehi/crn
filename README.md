@@ -6,12 +6,12 @@ CRN is ideal for modeling packeting symbols which are generated from different s
 ###### NFsim code is freely available under the GNU GENERAL PUBLIC LICENSE Version 3 on github: 
 [CRN source files](https://github.com/alivalehi/crn)
 
->To get CRN now, You can click on the download links which are available in the left menue.
+* To get CRN now, You can click on the download links which are available in the left menue.
 
->To learn more about how to use CRN, visit the Documentaion page which is accessible from the link in the left menue.
+* To learn more about how to use CRN, visit the Documentaion page which is accessible from the link in the left menue.
 
 
- Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com.
+ * ##### Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com.
 
 Please cite CRN as:
 ```
