@@ -14,6 +14,16 @@ CRN is ideal for modeling packeting symbols which are generated from different s
 
  * ##### Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com or Abolfazl Razi abolfazl.razi@nau.edu.
 
+Following is the list of projects which is developed based on this package:
+ 
+ 
+* An Online Learning Method to Maximize Energy Efficiency of Cognitive Sensor Networks [IEEE](http://ieeexplore.ieee.org/document/8294225/)
+* Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of Information [IEEE](http://ieeexplore.ieee.org/document/8025774/)  [Bibtex](http://alivalehi.com/crn/transpapersep2017bibtex.txt) [Plain](http://alivalehi.com/crn/transpapersep2017plain.txt)
+* Delay Minimization by Adaptive Framing Policy in Cognitive Sensor Networks [IEEE](http://ieeexplore.ieee.org/document/7925727/) [Bibtex](http://alivalehi.com/crn/wcncpapermay17bibtex.txt) [Plain](http://alivalehi.com/crn/wcncpapermay17plain.txt)
+
+
+
+
 Please cite CRN as:
 ```
 A. Valehi and A. Razi, "Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of Information," in IEEE Transactions on Cognitive Communications and Networking, vol. 3, no. 4, pp. 643-654, Dec. 2017.

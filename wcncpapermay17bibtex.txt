@@ -1,0 +1,12 @@
+@INPROCEEDINGS{7925727,
+author={A. Razi and A. Valehi and E. Bentley},
+booktitle={2017 IEEE Wireless Communications and Networking Conference (WCNC)},
+title={Delay Minimization by Adaptive Framing Policy in Cognitive Sensor Networks},
+year={2017},
+volume={},
+number={},
+pages={1-6},
+keywords={cognitive radio;error statistics;sensor fusion;telecommunication scheduling;wireless sensor networks;central data fusion center;channel availability process;channel bit error probability;cognitive sensor networks;current input traffic rate;delay-minimal joint framing;dynamic channel conditions;packet length;potential queue instability;scheduling policy;secondary sensor node;shared channel;time-sensitive data;Delays;Error probability;Minimization;Scheduling;Sensors;Wireless communication;Wireless sensor networks},
+doi={10.1109/WCNC.2017.7925727},
+ISSN={},
+month={March},}
