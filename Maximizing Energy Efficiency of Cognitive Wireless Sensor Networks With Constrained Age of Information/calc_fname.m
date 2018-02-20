@@ -1,0 +1,9 @@
+function [fname] = calc_fname(sim) 
+%a = sim.CRN.chNotAvRatio, disp('sim.CRN.chNotAvRatio in fname'); pause; b=sim.CRN.chAvPlenRatio, disp('sim.CRN.chAvPlenRatio in fname');pause;
+if sim.ch.BER==0, inBER=1; else inBER=ceil(1/sim.ch.BER); end
+fname=sprintf('NB%d_NH%d_%d_SymRate%d_Rch%d_BER%d_CS%d%d_CR%d_%d_impBER%d_%d_CRN%d_%d_%d_Kv%d', ...
+        sim.control.simulation, sim.N, sim.H, sim.lambda, sim.ch.Rch, inBER, ...
+        sim.coding.CTD, sim.coding.CTH, ceil(1/sim.coding.CRD), ceil(1/sim.coding.CRH), floor(sim.coding.impBERD), floor(sim.coding.impBERH), ...
+        sim.cognitive, sim.CRN.chNotAvRatio,sim.CRN.chAvPlenRatio, sum(sim.Kv));  
+fname=regexprep(fname,'\.','o'); sim.fname=[fname,'.mat'];
+return
