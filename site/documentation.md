@@ -208,6 +208,7 @@ Next packets are formed according to the framing methods and parameter by callin
 * Framing mode: 0:Frame based packetization, 1:Time based packetization 
 * x: inter-arrival times
 * TK: Framing time for time-based based packetization policy or Number of symbols at each packet for number-based packetization 
+
 ##### Outputs:
 * tp: time of the end of each packetization interval 
 * kp: number of symbols in each interval
