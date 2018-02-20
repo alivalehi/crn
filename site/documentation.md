@@ -48,6 +48,7 @@ while input_flag ==0
 The first question is about input process there are two different types of input process has beeen defined in CRN. Posission and Deterministic
 * #### Poission
 As you can see in the following figure the samples are generated according to poission process in the other words the time between generation of each symbol (shown by arrow) To know more about the realtion of Possion and exponential you can check [this link](https://stats.stackexchange.com/questions/2092/relationship-between-poisson-and-exponential-distribution). 
+![Image](./images/input-process2.gif)
 * #### Deterministic
 Another type of symbol generation is deterministic intervals. Although, this assumption is not that much real and it  is not a good approximation  for such a system. It is included in the package!
 In the following figure this concept is illistrated. The deteministic symbol generation can be also be described in this context:we assume that symbols are generated in a constant rate therefore the interval between all symbols has an equal length. 
