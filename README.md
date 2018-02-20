@@ -18,6 +18,7 @@ Following is the list of projects which is developed based on this package:
  
  
 * An Online Learning Method to Maximize Energy Efficiency of Cognitive Sensor Networks [IEEE](http://ieeexplore.ieee.org/document/8294225/) 
+
 [Bibtex] (http://alivalehi.com/crn/wcncpapermay17bibtex.cite)
 
 * Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of Information[IEEE](http://ieeexplore.ieee.org/document/8025774/)
