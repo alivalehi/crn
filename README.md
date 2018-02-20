@@ -11,7 +11,7 @@ CRN is ideal for modeling packeting symbols which are generated from different s
 * To learn more about how to use CRN, visit the Documentaion page which is accessible from the link in the left menue.
 
 
- * ##### Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com.
+ * ##### Questions, concerns, and comments should be directed to Ali Valehi ali.valehi@gmail.com or Abolfazl Razi abolfazl.razi@nau.edu.
 
 Please cite CRN as:
 ```
