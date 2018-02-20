@@ -133,6 +133,7 @@ while Ber_flag ==0
       end
 end
 ```
+# Default settings
 Following block contains all of the default setting for the imulation
 
 ```
@@ -151,16 +152,17 @@ sim = init_sim(mode);
 sim.cognitive = 1;
 sim.control.debug_active = 0;
 ```
-
+# Simulation process
 The actual simulation start from this section
 ```matlab
+%Find all the simulation parameters from the given simulation parameters [calc_sim_params]
 sim = calc_sim_params(sim);
 %Setting up H,N,lambda,a=1/lambda,Kv
-H = sim.H;  N = sim.N; lambda = sim.lambda;  a=1/lambda; Kv=sim.Kv;
+H = sim.H;  N = sim.N; lambda = sim.lambda;  a=1/lambda;
 if (sim.input_process == 1)              %Poisson process with rate 1/a,
     int_arrivals = random('exp', a,[1,sim.run.Nsym;]);   %generate interarrival times
 elseif (sim.input_process == 2)          %Deterministic inputs
-    int_arrivals = a * ones (SU,nsyms);           %interarrival times are constant
+    int_arrivals = a * ones (1,sim.run.Nsym);           %interarrival times are constant
 end
 t=clock;
 fprintf('\n\n***********************************************************************************\n');
@@ -171,6 +173,7 @@ if sim.Framing_mode==1
 else
     [tp, kp, fiv] = f_perform_framing(sim.Framing_mode, int_arrivals, K, sim.control.debug_active);
 end
+display('The packetization has been done!');
 queue.tp=tp; queue.kp=kp;
 [queue] = f_q_evolution(queue, sim, 1);
 te=clock;
@@ -178,8 +181,37 @@ delay = mean(queue.wnv + queue.sv);
   if sim.cognitive, fprintf('COGNITIVE Results ServiceTime[%f]   WaitingTime[%f]  Delay[%f] \n', ...
                 mean(queue.sv),mean(queue.wnv), delay);    end
 
-catch
- display('!!!!!!!!!!!!It seems you did not follow the requested format for the input please try agian!!!!!!!!!!!!')
+ catch
+display('!!!!!!!!!!!!It seems you did not follow the requested format for the inputs please try agian!!!!!!!!!!!!')
 end
 
 ```
+In The simulation process we first call the function "calc_sim_params" which calculates some of the simulation parameters as follows:
+##### Inputs:
+* symbol process rate
+* Minimum packetization interval: Tmin
+* PER
+* Packetization time vector: Tv
+
+##### Outputs:
+* symbol process average interarrival time
+* Average packetization interval = 2 * Tmin
+* BER
+* Average packet length
+* Channel Rate
+
+Next according to the users selection or the default settings symbols inter-arrivals are generated and the variable "int_arrivals" is initialized.
+
+Next packets are formed according to the framing methods and parameter by calling the function "f_perform_framing". This function works as follows:
+
+##### Inputs: 
+* Framing mode: 0:Frame based packetization, 1:Time based packetization 
+* x: inter-arrival times
+* TK: Framing time for time-based based packetization policy or Number of symbols at each packet for number-based packetization 
+##### Outputs:
+* tp: time of the end of each packetization interval 
+* kp: number of symbols in each interval
+
+Finally all of the calculated variables send to the queue simulator by calling "f_q_evolution" and the result of smulation shown as mean of waiting time and service time
+
+
