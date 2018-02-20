@@ -2,14 +2,16 @@
 CRN-queueing package is a tool for simulating the behaviour of packets in cognitive radio network or cognitive radio sensor networks. The aim of this package is calculating different features of such a system in addition to many other objectives which can be add to its framework. 
 ![Image](./images/whole.png)
  The package includes following main cores.
- 1- simulator initializer
- 1- simulation parameter calculator
- 1- symbol generator
- 1- packetizer
- 1- channel generator
- 1- paket transmission simulator
+ 
+ 1. simulator initializer
+ 2. simulation parameter calculator
+ 1. symbol generator
+ 1. packetizer
+ 1. channel generator
+ 1. paket transmission simulator
  In order to understand how each of these cores participate in the simulation a sample (sample.m) is provided which utilize all of these  cores to simulate a CRN with single pair of users.
- Following is the description of sample exmaple:
+
+Following is the description of sample exmaple:
  # Sample model
 The code starts with following code. 
 ```
