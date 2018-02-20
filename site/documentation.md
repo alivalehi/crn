@@ -139,6 +139,7 @@ Following block contains all of the default setting for the imulation
 ```
 else
     mode              = 1;   %1 for Time based or 2 for Number based
+    sim = init_sim(mode);
     sim.input_process = 1;   %1 for Poisson  2 for Deterministic
     sim.lambda        = 100;
     sim.Framing_mode  = mode;
@@ -148,7 +149,6 @@ else
 ```
 Some initialization that in this sample code is not initialized by the user
 ```
-sim = init_sim(mode);
 sim.cognitive = 1;
 sim.control.debug_active = 0;
 ```
