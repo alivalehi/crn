@@ -51,6 +51,7 @@ As you can see in the following figure the samples are generated according to po
 * #### Deterministic
 Another type of symbol generation is deterministic intervals. Although, this assumption is not that much real and it  is not a good approximation  for such a system. It is included in the package!
 In the following figure this concept is illistrated. The deteministic symbol generation can be also be described in this context:we assume that symbols are generated in a constant rate therefore the interval between all symbols has an equal length. 
+{{< importPartial "./input process.html" >}}
 ```matlab
 while lambda_flag == 0
      display('What is the lambda for the input generation?');
