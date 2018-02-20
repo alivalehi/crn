@@ -133,7 +133,7 @@ while Ber_flag ==0
       end
 end
 ```
-# Default settings
+### Default settings
 Following block contains all of the default setting for the imulation
 
 ```
@@ -152,7 +152,7 @@ sim = init_sim(mode);
 sim.cognitive = 1;
 sim.control.debug_active = 0;
 ```
-# Simulation process
+### Simulation process
 The actual simulation start from this section
 ```matlab
 %Find all the simulation parameters from the given simulation parameters [calc_sim_params]
