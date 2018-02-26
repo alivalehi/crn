@@ -20,7 +20,7 @@ Following is the list of projects which is developed based on this package:
 * An Online Learning Method to Maximize Energy Efficiency of Cognitive Sensor Networks [IEEE](http://ieeexplore.ieee.org/document/8294225/)
 * Maximizing Energy Efficiency of Cognitive Wireless Sensor Networks With Constrained Age of Information [IEEE](http://ieeexplore.ieee.org/document/8025774/)  [Bibtex](http://alivalehi.com/crn/transpapersep2017bibtex.txt) [Plain](http://alivalehi.com/crn/transpapersep2017plain.txt)
 * Channel-Adaptive Packetization Policy for Minimal Latency and Maximal Energy Efficiency [IEEE](http://ieeexplore.ieee.org/document/7337449/)
-
+* Delay minimization with channel-adaptive packetization policy for random data traffic [IEEE](http://ieeexplore.ieee.org/document/6814128/)
 * Delay Minimization by Adaptive Framing Policy in Cognitive Sensor Networks [IEEE](http://ieeexplore.ieee.org/document/7925727/) [Bibtex](http://alivalehi.com/crn/wcncpapermay17bibtex.txt) [Plain](http://alivalehi.com/crn/wcncpapermay17plain.txt)
 
 
